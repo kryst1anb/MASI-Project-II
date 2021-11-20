@@ -37,7 +37,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.password_signIn_TB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.signIn_BTN = new System.Windows.Forms.Button();
-            this.HaveAccount_label = new System.Windows.Forms.Label();
+            this.CreateAccount_label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -134,18 +134,19 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.signIn_BTN.Text = "SIGN IN";
             this.signIn_BTN.UseVisualStyleBackColor = false;
             // 
-            // HaveAccount_label
+            // CreateAccount_label
             // 
-            this.HaveAccount_label.AutoSize = true;
-            this.HaveAccount_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HaveAccount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
-            this.HaveAccount_label.Location = new System.Drawing.Point(506, 347);
-            this.HaveAccount_label.Name = "HaveAccount_label";
-            this.HaveAccount_label.Size = new System.Drawing.Size(103, 15);
-            this.HaveAccount_label.TabIndex = 17;
-            this.HaveAccount_label.Text = "Create an account";
-            this.HaveAccount_label.MouseEnter += new System.EventHandler(this.HaveAccount_label_MouseEnter);
-            this.HaveAccount_label.MouseLeave += new System.EventHandler(this.HaveAccount_label_MouseLeave);
+            this.CreateAccount_label.AutoSize = true;
+            this.CreateAccount_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreateAccount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
+            this.CreateAccount_label.Location = new System.Drawing.Point(506, 347);
+            this.CreateAccount_label.Name = "CreateAccount_label";
+            this.CreateAccount_label.Size = new System.Drawing.Size(103, 15);
+            this.CreateAccount_label.TabIndex = 17;
+            this.CreateAccount_label.Text = "Create an account";
+            this.CreateAccount_label.Click += new System.EventHandler(this.CreateAccount_label_Click);
+            this.CreateAccount_label.MouseEnter += new System.EventHandler(this.CreateAccount_label_MouseEnter);
+            this.CreateAccount_label.MouseLeave += new System.EventHandler(this.CreateAccount_label_MouseLeave);
             // 
             // panel2
             // 
@@ -226,7 +227,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.HaveAccount_label);
+            this.Controls.Add(this.CreateAccount_label);
             this.Controls.Add(this.signIn_BTN);
             this.Controls.Add(this.password_signIn_TB);
             this.Controls.Add(this.label4);
@@ -264,7 +265,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.TextBox password_signIn_TB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button signIn_BTN;
-        private System.Windows.Forms.Label HaveAccount_label;
+        private System.Windows.Forms.Label CreateAccount_label;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

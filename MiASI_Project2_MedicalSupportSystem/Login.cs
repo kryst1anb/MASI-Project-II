@@ -17,14 +17,22 @@ namespace MiASI_Project2_MedicalSupportSystem
             InitializeComponent();
         }
 
-        private void HaveAccount_label_MouseEnter(object sender, EventArgs e)
+        private void CreateAccount_label_MouseEnter(object sender, EventArgs e)
         {
-            HaveAccount_label.Font = new Font(HaveAccount_label.Font, FontStyle.Underline);
+            CreateAccount_label.Font = new Font(CreateAccount_label.Font, FontStyle.Underline);
         }
 
-        private void HaveAccount_label_MouseLeave(object sender, EventArgs e)
+        private void CreateAccount_label_MouseLeave(object sender, EventArgs e)
         {
-            HaveAccount_label.Font = new Font(HaveAccount_label.Font, FontStyle.Regular);
+            CreateAccount_label.Font = new Font(CreateAccount_label.Font, FontStyle.Regular);
+        }
+
+        private void CreateAccount_label_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp signup = new SignUp();
+            signup.ShowDialog();
+            this.Close();
         }
     }
 }
