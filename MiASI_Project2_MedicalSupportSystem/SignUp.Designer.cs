@@ -46,6 +46,13 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label3 = new System.Windows.Forms.Label();
             this.PinCode_TB = new System.Windows.Forms.TextBox();
             this.IsDoctor_CB = new System.Windows.Forms.CheckBox();
+            this.IsPatient_CB = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.name_signUp_TB = new System.Windows.Forms.TextBox();
+            this.surname_signUp_TB = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PinPESELCode_TB = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -153,7 +160,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(380, 121);
+            this.label5.Location = new System.Drawing.Point(377, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 50);
             this.label5.TabIndex = 20;
@@ -164,7 +171,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.HaveAccount_label.AutoSize = true;
             this.HaveAccount_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HaveAccount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
-            this.HaveAccount_label.Location = new System.Drawing.Point(485, 402);
+            this.HaveAccount_label.Location = new System.Drawing.Point(485, 480);
             this.HaveAccount_label.Name = "HaveAccount_label";
             this.HaveAccount_label.Size = new System.Drawing.Size(141, 15);
             this.HaveAccount_label.TabIndex = 26;
@@ -179,7 +186,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.signUp_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.signUp_BTN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.signUp_BTN.ForeColor = System.Drawing.SystemColors.Control;
-            this.signUp_BTN.Location = new System.Drawing.Point(476, 440);
+            this.signUp_BTN.Location = new System.Drawing.Point(480, 423);
             this.signUp_BTN.Name = "signUp_BTN";
             this.signUp_BTN.Size = new System.Drawing.Size(150, 45);
             this.signUp_BTN.TabIndex = 25;
@@ -189,7 +196,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             // password_signUp_TB
             // 
             this.password_signUp_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.password_signUp_TB.Location = new System.Drawing.Point(390, 300);
+            this.password_signUp_TB.Location = new System.Drawing.Point(390, 318);
             this.password_signUp_TB.Name = "password_signUp_TB";
             this.password_signUp_TB.Size = new System.Drawing.Size(317, 25);
             this.password_signUp_TB.TabIndex = 24;
@@ -199,7 +206,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(390, 276);
+            this.label4.Location = new System.Drawing.Point(390, 298);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 17);
             this.label4.TabIndex = 23;
@@ -208,7 +215,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             // login_signUp_TB
             // 
             this.login_signUp_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.login_signUp_TB.Location = new System.Drawing.Point(390, 226);
+            this.login_signUp_TB.Location = new System.Drawing.Point(390, 260);
             this.login_signUp_TB.Name = "login_signUp_TB";
             this.login_signUp_TB.Size = new System.Drawing.Size(317, 25);
             this.login_signUp_TB.TabIndex = 22;
@@ -218,7 +225,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(390, 201);
+            this.label3.Location = new System.Drawing.Point(390, 239);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 21;
@@ -226,11 +233,11 @@ namespace MiASI_Project2_MedicalSupportSystem
             // 
             // PinCode_TB
             // 
-            this.PinCode_TB.Location = new System.Drawing.Point(520, 349);
+            this.PinCode_TB.Location = new System.Drawing.Point(391, 375);
             this.PinCode_TB.Name = "PinCode_TB";
             this.PinCode_TB.PasswordChar = '*';
             this.PinCode_TB.PlaceholderText = "Enter pin code";
-            this.PinCode_TB.Size = new System.Drawing.Size(187, 23);
+            this.PinCode_TB.Size = new System.Drawing.Size(316, 23);
             this.PinCode_TB.TabIndex = 28;
             this.PinCode_TB.Visible = false;
             // 
@@ -238,7 +245,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             // 
             this.IsDoctor_CB.AutoSize = true;
             this.IsDoctor_CB.ForeColor = System.Drawing.SystemColors.Control;
-            this.IsDoctor_CB.Location = new System.Drawing.Point(392, 349);
+            this.IsDoctor_CB.Location = new System.Drawing.Point(559, 148);
             this.IsDoctor_CB.Name = "IsDoctor_CB";
             this.IsDoctor_CB.Size = new System.Drawing.Size(110, 19);
             this.IsDoctor_CB.TabIndex = 27;
@@ -246,12 +253,92 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.IsDoctor_CB.UseVisualStyleBackColor = true;
             this.IsDoctor_CB.CheckedChanged += new System.EventHandler(this.IsDoctor_CB_CheckedChanged);
             // 
+            // IsPatient_CB
+            // 
+            this.IsPatient_CB.AutoSize = true;
+            this.IsPatient_CB.Checked = true;
+            this.IsPatient_CB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IsPatient_CB.ForeColor = System.Drawing.SystemColors.Control;
+            this.IsPatient_CB.Location = new System.Drawing.Point(390, 148);
+            this.IsPatient_CB.Name = "IsPatient_CB";
+            this.IsPatient_CB.Size = new System.Drawing.Size(111, 19);
+            this.IsPatient_CB.TabIndex = 29;
+            this.IsPatient_CB.Text = "Patient Account";
+            this.IsPatient_CB.UseVisualStyleBackColor = true;
+            this.IsPatient_CB.CheckedChanged += new System.EventHandler(this.IsPatient_CB_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(390, 184);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Name:";
+            // 
+            // name_signUp_TB
+            // 
+            this.name_signUp_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.name_signUp_TB.Location = new System.Drawing.Point(390, 204);
+            this.name_signUp_TB.Name = "name_signUp_TB";
+            this.name_signUp_TB.Size = new System.Drawing.Size(148, 25);
+            this.name_signUp_TB.TabIndex = 31;
+            // 
+            // surname_signUp_TB
+            // 
+            this.surname_signUp_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.surname_signUp_TB.Location = new System.Drawing.Point(559, 204);
+            this.surname_signUp_TB.Name = "surname_signUp_TB";
+            this.surname_signUp_TB.Size = new System.Drawing.Size(148, 25);
+            this.surname_signUp_TB.TabIndex = 33;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(559, 184);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 17);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Surname:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(391, 355);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 17);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Code:";
+            // 
+            // PinPESELCode_TB
+            // 
+            this.PinPESELCode_TB.Location = new System.Drawing.Point(391, 375);
+            this.PinPESELCode_TB.Name = "PinPESELCode_TB";
+            this.PinPESELCode_TB.PasswordChar = '*';
+            this.PinPESELCode_TB.PlaceholderText = "Enter PESEL code";
+            this.PinPESELCode_TB.Size = new System.Drawing.Size(316, 23);
+            this.PinPESELCode_TB.TabIndex = 35;
+            this.PinPESELCode_TB.Visible = false;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.PinPESELCode_TB);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.surname_signUp_TB);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.name_signUp_TB);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.IsPatient_CB);
             this.Controls.Add(this.PinCode_TB);
             this.Controls.Add(this.IsDoctor_CB);
             this.Controls.Add(this.HaveAccount_label);
@@ -299,5 +386,12 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PinCode_TB;
         private System.Windows.Forms.CheckBox IsDoctor_CB;
+        private System.Windows.Forms.CheckBox IsPatient_CB;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox name_signUp_TB;
+        private System.Windows.Forms.TextBox surname_signUp_TB;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox PinPESELCode_TB;
     }
 }

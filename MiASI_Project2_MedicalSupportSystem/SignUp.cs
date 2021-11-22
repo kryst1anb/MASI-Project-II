@@ -40,10 +40,28 @@ namespace MiASI_Project2_MedicalSupportSystem
             if (IsDoctor_CB.Checked)
             {
                 PinCode_TB.Visible = true;
+                PinPESELCode_TB.Visible = false;
+                IsPatient_CB.Checked = false;
             }
             else
             {
                 PinCode_TB.Visible = false;
+                PinPESELCode_TB.Visible = true;
+            }
+        }
+
+        private void IsPatient_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPatient_CB.Checked)
+            {
+                PinCode_TB.Visible = false;
+                PinPESELCode_TB.Visible = true;
+                IsDoctor_CB.Checked = false;
+            }
+            else
+            {
+                PinCode_TB.Visible = true;
+                PinPESELCode_TB.Visible = false;
             }
         }
     }

@@ -127,7 +127,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.signIn_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.signIn_BTN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.signIn_BTN.ForeColor = System.Drawing.SystemColors.Control;
-            this.signIn_BTN.Location = new System.Drawing.Point(485, 393);
+            this.signIn_BTN.Location = new System.Drawing.Point(486, 364);
             this.signIn_BTN.Name = "signIn_BTN";
             this.signIn_BTN.Size = new System.Drawing.Size(150, 45);
             this.signIn_BTN.TabIndex = 8;
@@ -139,7 +139,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.CreateAccount_label.AutoSize = true;
             this.CreateAccount_label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CreateAccount_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
-            this.CreateAccount_label.Location = new System.Drawing.Point(506, 347);
+            this.CreateAccount_label.Location = new System.Drawing.Point(515, 423);
             this.CreateAccount_label.Name = "CreateAccount_label";
             this.CreateAccount_label.Size = new System.Drawing.Size(103, 15);
             this.CreateAccount_label.TabIndex = 17;
