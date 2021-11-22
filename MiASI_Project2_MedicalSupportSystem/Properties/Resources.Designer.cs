@@ -63,6 +63,36 @@ namespace MiASI_Project2_MedicalSupportSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addlogo {
+            get {
+                object obj = ResourceManager.GetObject("addlogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap doclogo {
+            get {
+                object obj = ResourceManager.GetObject("doclogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap heartlogo {
+            get {
+                object obj = ResourceManager.GetObject("heartlogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
@@ -96,6 +126,16 @@ namespace MiASI_Project2_MedicalSupportSystem.Properties {
         internal static System.Drawing.Bitmap logo4 {
             get {
                 object obj = ResourceManager.GetObject("logo4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userlogo {
+            get {
+                object obj = ResourceManager.GetObject("userlogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
