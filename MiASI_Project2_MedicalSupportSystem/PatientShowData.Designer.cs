@@ -309,6 +309,10 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "PatientShowData";
             this.Text = "MEDICAL DATA | MEDICAL SUPPORT SYSTEM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
