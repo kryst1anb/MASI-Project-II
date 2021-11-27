@@ -76,7 +76,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             string userPassword = password_signUp_TB.Text;
             string commandText = "";
 
-            string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;";
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=false;";
             SqlConnection cnn = new SqlConnection(connectionString);
             cnn.Open();
 
@@ -96,7 +96,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                         }
                         else
                         {
-                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{userPassword}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 1, (SELECT TOP 1 PasswordID FROM Project1.dbo.Passwords ORDER BY PasswordID DESC));";
+                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{userPassword}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 1, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
                         }
                     }
                     else if (IsDoctor_CB.Checked == false && IsPatient_CB.Checked == true)
@@ -108,7 +108,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                         }
                         else
                         {
-                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{userPassword}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 2, (SELECT TOP 1 PasswordID FROM Project1.dbo.Passwords ORDER BY PasswordID DESC));";
+                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{userPassword}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 2, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
                         }
                     }
                     else
@@ -124,6 +124,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                     Login login = new Login();
                     login.ShowDialog();
                     this.Close();
+                    return;
                 }
                 MessageBox.Show("Login exist!");
                 login_signUp_TB.Text = "";
