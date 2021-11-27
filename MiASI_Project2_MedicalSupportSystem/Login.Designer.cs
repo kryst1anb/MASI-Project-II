@@ -133,6 +133,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.signIn_BTN.TabIndex = 8;
             this.signIn_BTN.Text = "SIGN IN";
             this.signIn_BTN.UseVisualStyleBackColor = false;
+            this.signIn_BTN.Click += new System.EventHandler(this.signIn_BTN_Click);
             // 
             // CreateAccount_label
             // 
