@@ -261,6 +261,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(214, 211);
             this.textBox1.Name = "textBox1";

@@ -192,12 +192,14 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.signUp_BTN.TabIndex = 25;
             this.signUp_BTN.Text = "SIGN UP";
             this.signUp_BTN.UseVisualStyleBackColor = false;
+            this.signUp_BTN.Click += new System.EventHandler(this.signUp_BTN_Click);
             // 
             // password_signUp_TB
             // 
             this.password_signUp_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.password_signUp_TB.Location = new System.Drawing.Point(390, 318);
             this.password_signUp_TB.Name = "password_signUp_TB";
+            this.password_signUp_TB.PasswordChar = '*';
             this.password_signUp_TB.Size = new System.Drawing.Size(317, 25);
             this.password_signUp_TB.TabIndex = 24;
             // 
@@ -320,7 +322,6 @@ namespace MiASI_Project2_MedicalSupportSystem
             // 
             this.PinPESELCode_TB.Location = new System.Drawing.Point(391, 375);
             this.PinPESELCode_TB.Name = "PinPESELCode_TB";
-            this.PinPESELCode_TB.PasswordChar = '*';
             this.PinPESELCode_TB.PlaceholderText = "Enter PESEL code";
             this.PinPESELCode_TB.Size = new System.Drawing.Size(316, 23);
             this.PinPESELCode_TB.TabIndex = 35;
