@@ -39,9 +39,9 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.noMedData_LB = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.medData_Panel = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.show_MedData_BTN = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.show_MedData_BTN = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.add_MedData_BTN = new System.Windows.Forms.Button();
             this.resultData_Panel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -94,7 +94,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             // loginName_LB
             // 
             this.loginName_LB.AutoSize = true;
-            this.loginName_LB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.loginName_LB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.loginName_LB.ForeColor = System.Drawing.SystemColors.Control;
             this.loginName_LB.Location = new System.Drawing.Point(186, 11);
             this.loginName_LB.Name = "loginName_LB";
@@ -102,6 +102,9 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.loginName_LB.TabIndex = 7;
             this.loginName_LB.Text = "loginName";
             this.toolTip1.SetToolTip(this.loginName_LB, "Logout");
+            this.loginName_LB.Click += new System.EventHandler(this.loginName_LB_Click);
+            this.loginName_LB.MouseEnter += new System.EventHandler(this.loginName_LB_MouseEnter);
+            this.loginName_LB.MouseLeave += new System.EventHandler(this.loginName_LB_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -146,15 +149,16 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.medData_Panel.Size = new System.Drawing.Size(221, 213);
             this.medData_Panel.TabIndex = 12;
             // 
-            // pictureBox3
+            // label5
             // 
-            this.pictureBox3.Image = global::MiASI_Project2_MedicalSupportSystem.Properties.Resources.heartlogo;
-            this.pictureBox3.Location = new System.Drawing.Point(79, 27);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(35, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 32);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Medical Data";
             // 
             // show_MedData_BTN
             // 
@@ -168,16 +172,15 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.show_MedData_BTN.Text = "SHOW";
             this.show_MedData_BTN.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // pictureBox3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(35, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 32);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Medical Data";
+            this.pictureBox3.Image = global::MiASI_Project2_MedicalSupportSystem.Properties.Resources.heartlogo;
+            this.pictureBox3.Location = new System.Drawing.Point(79, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
             // 
             // add_MedData_BTN
             // 
@@ -267,6 +270,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "PatientHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HOME | MEDICAL SUPPORT SYSTEM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.medData_Panel.ResumeLayout(false);

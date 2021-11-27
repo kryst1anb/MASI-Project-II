@@ -83,8 +83,10 @@ namespace MiASI_Project2_MedicalSupportSystem
                             }
                             else
                             {
-                                //show doctor win form
-                                MessageBox.Show("lekarz");
+                                this.Hide();
+                                DoctorHome doctorHome = new DoctorHome();
+                                doctorHome.ShowDialog();
+                                this.Close();
                             }
                            
                         }

@@ -10,22 +10,15 @@ using System.Windows.Forms;
 
 namespace MiASI_Project2_MedicalSupportSystem
 {
-    public partial class PatientHome : Form
+    public partial class DoctorHome : Form
     {
         public static string role;
-        public PatientHome()
+
+        public DoctorHome()
         {
             InitializeComponent();
             loginName_LB.Text = Login.loginDisplay;
             role = Login.userRole;
-        }
-
-        private void loginName_LB_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
-            this.Close();
         }
 
         private void loginName_LB_MouseEnter(object sender, EventArgs e)
@@ -36,6 +29,14 @@ namespace MiASI_Project2_MedicalSupportSystem
         private void loginName_LB_MouseLeave(object sender, EventArgs e)
         {
             loginName_LB.Font = new Font(loginName_LB.Font, FontStyle.Regular);
+        }
+
+        private void loginName_LB_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
         }
     }
 }
