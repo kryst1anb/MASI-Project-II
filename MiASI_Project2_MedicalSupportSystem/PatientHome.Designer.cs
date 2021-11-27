@@ -171,6 +171,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.show_MedData_BTN.TabIndex = 14;
             this.show_MedData_BTN.Text = "SHOW";
             this.show_MedData_BTN.UseVisualStyleBackColor = false;
+            this.show_MedData_BTN.Click += new System.EventHandler(this.show_MedData_BTN_Click);
             // 
             // pictureBox3
             // 
@@ -193,6 +194,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.add_MedData_BTN.TabIndex = 13;
             this.add_MedData_BTN.Text = "ADD DATA";
             this.add_MedData_BTN.UseVisualStyleBackColor = false;
+            this.add_MedData_BTN.Click += new System.EventHandler(this.add_MedData_BTN_Click);
             // 
             // resultData_Panel
             // 
@@ -227,6 +229,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.button1.TabIndex = 14;
             this.button1.Text = "SHOW";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox2
             // 

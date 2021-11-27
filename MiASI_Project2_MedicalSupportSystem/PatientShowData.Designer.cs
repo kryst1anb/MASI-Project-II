@@ -29,6 +29,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.loginName_LB = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,20 +52,25 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.backShowData_BTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // loginName_LB
             // 
             this.loginName_LB.AutoSize = true;
-            this.loginName_LB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.loginName_LB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.loginName_LB.ForeColor = System.Drawing.SystemColors.Control;
             this.loginName_LB.Location = new System.Drawing.Point(186, 11);
             this.loginName_LB.Name = "loginName_LB";
             this.loginName_LB.Size = new System.Drawing.Size(66, 15);
             this.loginName_LB.TabIndex = 15;
             this.loginName_LB.Text = "loginName";
+            this.toolTip1.SetToolTip(this.loginName_LB, "Logout");
+            this.loginName_LB.Click += new System.EventHandler(this.loginName_LB_Click);
+            this.loginName_LB.MouseEnter += new System.EventHandler(this.loginName_LB_MouseEnter);
+            this.loginName_LB.MouseLeave += new System.EventHandler(this.loginName_LB_MouseLeave);
             // 
             // label6
             // 
@@ -268,18 +274,19 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.textBox1.Size = new System.Drawing.Size(155, 23);
             this.textBox1.TabIndex = 30;
             // 
-            // button1
+            // backShowData_BTN
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(341, 443);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 35);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "BACK";
-            this.button1.UseVisualStyleBackColor = false;
+            this.backShowData_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.backShowData_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backShowData_BTN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.backShowData_BTN.ForeColor = System.Drawing.SystemColors.Control;
+            this.backShowData_BTN.Location = new System.Drawing.Point(349, 437);
+            this.backShowData_BTN.Name = "backShowData_BTN";
+            this.backShowData_BTN.Size = new System.Drawing.Size(104, 35);
+            this.backShowData_BTN.TabIndex = 47;
+            this.backShowData_BTN.Text = "BACK";
+            this.backShowData_BTN.UseVisualStyleBackColor = false;
+            this.backShowData_BTN.Click += new System.EventHandler(this.backShowData_BTN_Click_1);
             // 
             // PatientShowData
             // 
@@ -287,7 +294,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.backShowData_BTN);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -315,6 +322,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "PatientShowData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MEDICAL DATA | MEDICAL SUPPORT SYSTEM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -346,6 +354,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button backShowData_BTN;
     }
 }
