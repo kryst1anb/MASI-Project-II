@@ -36,14 +36,14 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.pregnancies_TB = new System.Windows.Forms.TextBox();
+            this.glucose_TB = new System.Windows.Forms.TextBox();
+            this.insulin_TB = new System.Windows.Forms.TextBox();
+            this.bmi_TB = new System.Windows.Forms.TextBox();
+            this.age_TB = new System.Windows.Forms.TextBox();
+            this.skinThickness_TB = new System.Windows.Forms.TextBox();
+            this.diabetesPedigree_TB = new System.Windows.Forms.TextBox();
+            this.bloodPressure_TB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.backAddData_BTN = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addAddData_BTN = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,61 +130,61 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label3.TabIndex = 13;
             this.label3.Text = "ADD MEDICAL DATA";
             // 
-            // textBox1
+            // pregnancies_TB
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 219);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 23);
-            this.textBox1.TabIndex = 14;
+            this.pregnancies_TB.Location = new System.Drawing.Point(209, 219);
+            this.pregnancies_TB.Name = "pregnancies_TB";
+            this.pregnancies_TB.Size = new System.Drawing.Size(155, 23);
+            this.pregnancies_TB.TabIndex = 14;
             // 
-            // textBox2
+            // glucose_TB
             // 
-            this.textBox2.Location = new System.Drawing.Point(209, 268);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 23);
-            this.textBox2.TabIndex = 15;
+            this.glucose_TB.Location = new System.Drawing.Point(209, 268);
+            this.glucose_TB.Name = "glucose_TB";
+            this.glucose_TB.Size = new System.Drawing.Size(155, 23);
+            this.glucose_TB.TabIndex = 15;
             // 
-            // textBox3
+            // insulin_TB
             // 
-            this.textBox3.Location = new System.Drawing.Point(497, 219);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 23);
-            this.textBox3.TabIndex = 16;
+            this.insulin_TB.Location = new System.Drawing.Point(497, 219);
+            this.insulin_TB.Name = "insulin_TB";
+            this.insulin_TB.Size = new System.Drawing.Size(155, 23);
+            this.insulin_TB.TabIndex = 16;
             // 
-            // textBox4
+            // bmi_TB
             // 
-            this.textBox4.Location = new System.Drawing.Point(497, 268);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 23);
-            this.textBox4.TabIndex = 17;
+            this.bmi_TB.Location = new System.Drawing.Point(497, 268);
+            this.bmi_TB.Name = "bmi_TB";
+            this.bmi_TB.Size = new System.Drawing.Size(155, 23);
+            this.bmi_TB.TabIndex = 17;
             // 
-            // textBox5
+            // age_TB
             // 
-            this.textBox5.Location = new System.Drawing.Point(497, 323);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(155, 23);
-            this.textBox5.TabIndex = 18;
+            this.age_TB.Location = new System.Drawing.Point(497, 323);
+            this.age_TB.Name = "age_TB";
+            this.age_TB.Size = new System.Drawing.Size(155, 23);
+            this.age_TB.TabIndex = 18;
             // 
-            // textBox6
+            // skinThickness_TB
             // 
-            this.textBox6.Location = new System.Drawing.Point(497, 375);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(155, 23);
-            this.textBox6.TabIndex = 19;
+            this.skinThickness_TB.Location = new System.Drawing.Point(497, 375);
+            this.skinThickness_TB.Name = "skinThickness_TB";
+            this.skinThickness_TB.Size = new System.Drawing.Size(155, 23);
+            this.skinThickness_TB.TabIndex = 19;
             // 
-            // textBox7
+            // diabetesPedigree_TB
             // 
-            this.textBox7.Location = new System.Drawing.Point(209, 375);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(155, 23);
-            this.textBox7.TabIndex = 20;
+            this.diabetesPedigree_TB.Location = new System.Drawing.Point(209, 375);
+            this.diabetesPedigree_TB.Name = "diabetesPedigree_TB";
+            this.diabetesPedigree_TB.Size = new System.Drawing.Size(155, 23);
+            this.diabetesPedigree_TB.TabIndex = 20;
             // 
-            // textBox8
+            // bloodPressure_TB
             // 
-            this.textBox8.Location = new System.Drawing.Point(209, 323);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(155, 23);
-            this.textBox8.TabIndex = 21;
+            this.bloodPressure_TB.Location = new System.Drawing.Point(209, 323);
+            this.bloodPressure_TB.Name = "bloodPressure_TB";
+            this.bloodPressure_TB.Size = new System.Drawing.Size(155, 23);
+            this.bloodPressure_TB.TabIndex = 21;
             // 
             // label4
             // 
@@ -280,18 +280,19 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.backAddData_BTN.UseVisualStyleBackColor = false;
             this.backAddData_BTN.Click += new System.EventHandler(this.backAddData_BTN_Click);
             // 
-            // button2
+            // addAddData_BTN
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(408, 447);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 35);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "ADD";
-            this.button2.UseVisualStyleBackColor = false;
+            this.addAddData_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
+            this.addAddData_BTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addAddData_BTN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addAddData_BTN.ForeColor = System.Drawing.SystemColors.Control;
+            this.addAddData_BTN.Location = new System.Drawing.Point(408, 447);
+            this.addAddData_BTN.Name = "addAddData_BTN";
+            this.addAddData_BTN.Size = new System.Drawing.Size(104, 35);
+            this.addAddData_BTN.TabIndex = 31;
+            this.addAddData_BTN.Text = "ADD";
+            this.addAddData_BTN.UseVisualStyleBackColor = false;
+            this.addAddData_BTN.Click += new System.EventHandler(this.addAddData_BTN_Click);
             // 
             // PatientAddData
             // 
@@ -299,7 +300,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.addAddData_BTN);
             this.Controls.Add(this.backAddData_BTN);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -309,14 +310,14 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bloodPressure_TB);
+            this.Controls.Add(this.diabetesPedigree_TB);
+            this.Controls.Add(this.skinThickness_TB);
+            this.Controls.Add(this.age_TB);
+            this.Controls.Add(this.bmi_TB);
+            this.Controls.Add(this.insulin_TB);
+            this.Controls.Add(this.glucose_TB);
+            this.Controls.Add(this.pregnancies_TB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.loginName_LB);
@@ -344,14 +345,14 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox pregnancies_TB;
+        private System.Windows.Forms.TextBox glucose_TB;
+        private System.Windows.Forms.TextBox insulin_TB;
+        private System.Windows.Forms.TextBox bmi_TB;
+        private System.Windows.Forms.TextBox age_TB;
+        private System.Windows.Forms.TextBox skinThickness_TB;
+        private System.Windows.Forms.TextBox diabetesPedigree_TB;
+        private System.Windows.Forms.TextBox bloodPressure_TB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
@@ -361,7 +362,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button backAddData_BTN;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addAddData_BTN;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }
