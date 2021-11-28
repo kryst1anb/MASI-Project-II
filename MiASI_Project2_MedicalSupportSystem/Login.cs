@@ -14,6 +14,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         public static string loginDisplay;
         public static string userRole;
 
+        //Wytłumacze co to jest jak będziemy na DC
         string privateKey = "<RSAKeyValue><Modulus>1BqYDcKctOuTI73qRbUCaxO3tTBXD9Wmm6tYsS7q/ubk7+dlRsx8v8w4vHAskuk0LXSb1y9OhSBONnPT8Hre7GjE8zzSCFwsBuPJTzG21Zeu/R5jPSXWmmZCc0p3S5s8ILaR3qrdDDLpyru1mSGWBL0A22+iGaGIeuIwO/1jFmk=</Modulus><Exponent>AQAB</Exponent><P>1hR1mgC+Zo1dnQZ7N6SIlL7Q9DoRt0/cCnKke7lXxFWYv4lfwyD2Ap317kZg855qJsrBLs+ij2rwx8ae5i98/w==</P><Q>/aMUGARxOpBNQrgBIwqT6PUvUGO0FXG8YIeusJNHiNsFNBL9boDfN3WUAKV4DKbBYBv+seLQQCq2unHXm7Oklw==</Q><DP>n7v8U8CiUNrCMtwXLFl0H6iROOnrNiA8Sv9ng3mz5ycHJkNWVL5PUXyTeArDZIObKP64TjlXTjO5HRcykQZ1+Q==</DP><DQ>SxWg2C9Qeb7IMG0aYQ47lSYoOIsbf5Go64afL0SaU6hK1QyeG71o1xkmlD5n2I7xBgujjXOQpL5AU9dptX0rxw==</DQ><InverseQ>uWrT5YrpQ6dMioZJ9CFW2Xj9jNndKMtW/vwQYyTXJIDDwtLFEexx/gCfiVO+yCZUoIK6qFFy2jx8x8mi/GAgSg==</InverseQ><D>Dz/6PsMHUVq+sYsuFOT2z4wTYUugdtr9p6OiNNsSulEPlNAmT/jT31ZnneTSz51Eyx/fNJGKK7gu52tciaXL8UHWPQhlwg9w8Ny5in87ZuufSB7AO9yDziiq/uQsXUcfPL+Xtz9oKoOpo+8VcmLy1Ss2pVSZlnzx4JC9180RXiE=</D></RSAKeyValue>";
 
 
@@ -41,7 +42,6 @@ namespace MiASI_Project2_MedicalSupportSystem
                 }
             }
         }
-
 
         private void CreateAccount_label_MouseEnter(object sender, EventArgs e)
         {
@@ -89,25 +89,34 @@ namespace MiASI_Project2_MedicalSupportSystem
 
                     if (dataReader.Read())
                     {
-                        string passDB = Decryption(dataReader.GetValue(1).ToString(), privateKey);
+                        string pass = dataReader.GetValue(1).ToString();
 
-                        if ((dataReader.GetValue(0).ToString() == login) && (passDB == password))
+                        if(!string.IsNullOrWhiteSpace(pass))
                         {
-                            userRole = dataReader.GetValue(2).ToString();
+                            string passDB = Decryption(pass, privateKey);
 
-                            if(userRole == "Patient")
+                            if ((dataReader.GetValue(0).ToString() == login) && (passDB == password))
                             {
-                                this.Hide();
-                                PatientHome patientHome = new PatientHome();
-                                patientHome.ShowDialog();
-                                this.Close();
+                                userRole = dataReader.GetValue(2).ToString();
+
+                                if (userRole == "Patient")
+                                {
+                                    this.Hide();
+                                    PatientHome patientHome = new PatientHome();
+                                    patientHome.ShowDialog();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    this.Hide();
+                                    DoctorHome doctorHome = new DoctorHome();
+                                    doctorHome.ShowDialog();
+                                    this.Close();
+                                }
                             }
                             else
                             {
-                                this.Hide();
-                                DoctorHome doctorHome = new DoctorHome();
-                                doctorHome.ShowDialog();
-                                this.Close();
+                                MessageBox.Show("Your login or password is incorrect");
                             }
                         }
                         else
@@ -115,7 +124,10 @@ namespace MiASI_Project2_MedicalSupportSystem
                             MessageBox.Show("Your login or password is incorrect");
                         }
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Your login or password is incorrect");
+                    }
                     dataReader.Close();
                 }
                 catch

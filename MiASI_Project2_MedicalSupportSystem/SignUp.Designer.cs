@@ -201,7 +201,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.password_signUp_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.password_signUp_TB.Location = new System.Drawing.Point(390, 318);
             this.password_signUp_TB.Name = "password_signUp_TB";
-            this.password_signUp_TB.PasswordChar = '*';
+            this.password_signUp_TB.PasswordChar = '●';
             this.password_signUp_TB.Size = new System.Drawing.Size(317, 25);
             this.password_signUp_TB.TabIndex = 24;
             // 
@@ -239,7 +239,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             // 
             this.PinCode_TB.Location = new System.Drawing.Point(391, 375);
             this.PinCode_TB.Name = "PinCode_TB";
-            this.PinCode_TB.PasswordChar = '*';
+            this.PinCode_TB.PasswordChar = '●';
             this.PinCode_TB.PlaceholderText = "Enter pin code";
             this.PinCode_TB.Size = new System.Drawing.Size(316, 23);
             this.PinCode_TB.TabIndex = 28;

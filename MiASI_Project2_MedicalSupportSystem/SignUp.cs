@@ -14,6 +14,7 @@ namespace MiASI_Project2_MedicalSupportSystem
 {
     public partial class SignUp : Form
     {
+        //Wytłumacze co to jest jak będziemy na DC
         string publicKey = "<RSAKeyValue><Modulus>1BqYDcKctOuTI73qRbUCaxO3tTBXD9Wmm6tYsS7q/ubk7+dlRsx8v8w4vHAskuk0LXSb1y9OhSBONnPT8Hre7GjE8zzSCFwsBuPJTzG21Zeu/R5jPSXWmmZCc0p3S5s8ILaR3qrdDDLpyru1mSGWBL0A22+iGaGIeuIwO/1jFmk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
 
         public SignUp()

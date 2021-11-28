@@ -108,6 +108,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.password_signIn_TB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.password_signIn_TB.Location = new System.Drawing.Point(390, 300);
             this.password_signIn_TB.Name = "password_signIn_TB";
+            this.password_signIn_TB.PasswordChar = '●';
             this.password_signIn_TB.Size = new System.Drawing.Size(317, 25);
             this.password_signIn_TB.TabIndex = 7;
             // 
