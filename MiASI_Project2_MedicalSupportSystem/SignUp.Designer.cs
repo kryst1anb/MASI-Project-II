@@ -45,19 +45,21 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.login_signUp_TB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PinCode_TB = new System.Windows.Forms.TextBox();
-            this.IsDoctor_CB = new System.Windows.Forms.CheckBox();
-            this.IsPatient_CB = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.name_signUp_TB = new System.Windows.Forms.TextBox();
             this.surname_signUp_TB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.PinPESELCode_TB = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.IsDoctor_CB = new System.Windows.Forms.RadioButton();
+            this.IsPatient_CB = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -243,32 +245,6 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.PinCode_TB.TabIndex = 28;
             this.PinCode_TB.Visible = false;
             // 
-            // IsDoctor_CB
-            // 
-            this.IsDoctor_CB.AutoSize = true;
-            this.IsDoctor_CB.ForeColor = System.Drawing.SystemColors.Control;
-            this.IsDoctor_CB.Location = new System.Drawing.Point(559, 148);
-            this.IsDoctor_CB.Name = "IsDoctor_CB";
-            this.IsDoctor_CB.Size = new System.Drawing.Size(110, 19);
-            this.IsDoctor_CB.TabIndex = 27;
-            this.IsDoctor_CB.Text = "Doctor Account";
-            this.IsDoctor_CB.UseVisualStyleBackColor = true;
-            this.IsDoctor_CB.CheckedChanged += new System.EventHandler(this.IsDoctor_CB_CheckedChanged);
-            // 
-            // IsPatient_CB
-            // 
-            this.IsPatient_CB.AutoSize = true;
-            this.IsPatient_CB.Checked = true;
-            this.IsPatient_CB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IsPatient_CB.ForeColor = System.Drawing.SystemColors.Control;
-            this.IsPatient_CB.Location = new System.Drawing.Point(390, 148);
-            this.IsPatient_CB.Name = "IsPatient_CB";
-            this.IsPatient_CB.Size = new System.Drawing.Size(111, 19);
-            this.IsPatient_CB.TabIndex = 29;
-            this.IsPatient_CB.Text = "Patient Account";
-            this.IsPatient_CB.UseVisualStyleBackColor = true;
-            this.IsPatient_CB.CheckedChanged += new System.EventHandler(this.IsPatient_CB_CheckedChanged);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -327,21 +303,55 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.PinPESELCode_TB.TabIndex = 35;
             this.PinPESELCode_TB.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.IsDoctor_CB);
+            this.panel1.Controls.Add(this.IsPatient_CB);
+            this.panel1.Location = new System.Drawing.Point(390, 146);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(317, 25);
+            this.panel1.TabIndex = 36;
+            // 
+            // IsDoctor_CB
+            // 
+            this.IsDoctor_CB.AutoSize = true;
+            this.IsDoctor_CB.ForeColor = System.Drawing.SystemColors.Window;
+            this.IsDoctor_CB.Location = new System.Drawing.Point(169, 4);
+            this.IsDoctor_CB.Name = "IsDoctor_CB";
+            this.IsDoctor_CB.Size = new System.Drawing.Size(109, 19);
+            this.IsDoctor_CB.TabIndex = 1;
+            this.IsDoctor_CB.Text = "Doctor Account";
+            this.IsDoctor_CB.UseVisualStyleBackColor = true;
+            this.IsDoctor_CB.CheckedChanged += new System.EventHandler(this.IsType_CB_CheckedChanged);
+            // 
+            // IsPatient_CB
+            // 
+            this.IsPatient_CB.AutoSize = true;
+            this.IsPatient_CB.Checked = true;
+            this.IsPatient_CB.ForeColor = System.Drawing.SystemColors.Window;
+            this.IsPatient_CB.Location = new System.Drawing.Point(4, 4);
+            this.IsPatient_CB.Name = "IsPatient_CB";
+            this.IsPatient_CB.Size = new System.Drawing.Size(110, 19);
+            this.IsPatient_CB.TabIndex = 0;
+            this.IsPatient_CB.TabStop = true;
+            this.IsPatient_CB.Text = "Patient Account";
+            this.IsPatient_CB.UseVisualStyleBackColor = true;
+            this.IsPatient_CB.CheckedChanged += new System.EventHandler(this.IsType_CB_CheckedChanged);
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.PinPESELCode_TB);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.surname_signUp_TB);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.name_signUp_TB);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.IsPatient_CB);
             this.Controls.Add(this.PinCode_TB);
-            this.Controls.Add(this.IsDoctor_CB);
             this.Controls.Add(this.HaveAccount_label);
             this.Controls.Add(this.signUp_BTN);
             this.Controls.Add(this.password_signUp_TB);
@@ -363,6 +373,8 @@ namespace MiASI_Project2_MedicalSupportSystem
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,13 +398,14 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.TextBox login_signUp_TB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PinCode_TB;
-        private System.Windows.Forms.CheckBox IsDoctor_CB;
-        private System.Windows.Forms.CheckBox IsPatient_CB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox name_signUp_TB;
         private System.Windows.Forms.TextBox surname_signUp_TB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox PinPESELCode_TB;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton IsDoctor_CB;
+        private System.Windows.Forms.RadioButton IsPatient_CB;
     }
 }

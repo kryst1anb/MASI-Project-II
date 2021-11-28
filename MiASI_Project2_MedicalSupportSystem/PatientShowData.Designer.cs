@@ -348,9 +348,6 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox bloodPressure_TB;
         private System.Windows.Forms.TextBox diabetesPedigree_TB;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox insulin_TB;
         private System.Windows.Forms.TextBox glucose_TB;
         private System.Windows.Forms.TextBox pregnancies_TB;

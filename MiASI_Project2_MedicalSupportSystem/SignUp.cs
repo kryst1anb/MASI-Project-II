@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,10 +14,34 @@ namespace MiASI_Project2_MedicalSupportSystem
 {
     public partial class SignUp : Form
     {
+        string publicKey = "<RSAKeyValue><Modulus>1BqYDcKctOuTI73qRbUCaxO3tTBXD9Wmm6tYsS7q/ubk7+dlRsx8v8w4vHAskuk0LXSb1y9OhSBONnPT8Hre7GjE8zzSCFwsBuPJTzG21Zeu/R5jPSXWmmZCc0p3S5s8ILaR3qrdDDLpyru1mSGWBL0A22+iGaGIeuIwO/1jFmk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
+
         public SignUp()
         {
             InitializeComponent();
             PinPESELCode_TB.Visible = true;
+        }
+        public static string Encryption(string strText, string publicKey)
+        {
+            var data = Encoding.UTF8.GetBytes(strText);
+
+            using (var rsa = new RSACryptoServiceProvider(1024))
+            {
+                try
+                {                 
+                    rsa.FromXmlString(publicKey.ToString());
+
+                    var encryptedData = rsa.Encrypt(data, true);
+
+                    var base64Encrypted = Convert.ToBase64String(encryptedData);
+
+                    return base64Encrypted;
+                }
+                finally
+                {
+                    rsa.PersistKeyInCsp = false;
+                }
+            }
         }
 
         private void HaveAccount_label_MouseEnter(object sender, EventArgs e)
@@ -37,33 +62,21 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.Close();
         }
 
-        private void IsDoctor_CB_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsDoctor_CB.Checked)
-            {
-                PinCode_TB.Visible = true;
-                PinPESELCode_TB.Visible = false;
-                IsPatient_CB.Checked = false;
-            }
-            else
-            {
-                PinCode_TB.Visible = false;
-                PinPESELCode_TB.Visible = true;
-            }
-        }
-
-        private void IsPatient_CB_CheckedChanged(object sender, EventArgs e)
+        private void IsType_CB_CheckedChanged(object sender, EventArgs e)
         {
             if (IsPatient_CB.Checked)
             {
+                //Patient
                 PinCode_TB.Visible = false;
                 PinPESELCode_TB.Visible = true;
                 IsDoctor_CB.Checked = false;
             }
             else
             {
+                //Doctor
                 PinCode_TB.Visible = true;
                 PinPESELCode_TB.Visible = false;
+                IsPatient_CB.Checked = false;
             }
         }
 
@@ -96,10 +109,10 @@ namespace MiASI_Project2_MedicalSupportSystem
                         }
                         else
                         {
-                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{userPassword}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 2, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
+                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{Encryption(userPassword,publicKey)}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 2, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
                         }
                     }
-                    else if (IsDoctor_CB.Checked == false && IsPatient_CB.Checked == true)
+                    else if (IsPatient_CB.Checked == true)
                     {
                         //Patient
                         if (string.IsNullOrWhiteSpace(login_signUp_TB.Text) || string.IsNullOrWhiteSpace(password_signUp_TB.Text) || login_signUp_TB.Text.Any(Char.IsWhiteSpace) || password_signUp_TB.Text.Any(Char.IsWhiteSpace))
@@ -108,7 +121,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                         }
                         else
                         {
-                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{userPassword}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 1, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
+                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{Encryption(userPassword, publicKey)}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 1, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
                         }
                     }
                     else
@@ -136,7 +149,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
             finally
             {
