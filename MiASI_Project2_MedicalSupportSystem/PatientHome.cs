@@ -48,6 +48,8 @@ namespace MiASI_Project2_MedicalSupportSystem
                     medData_Panel.Visible = false;
                 }
 
+                cmd.Dispose();
+                dataReader.Close();
             }
             catch (Exception ex)
             {
@@ -57,8 +59,6 @@ namespace MiASI_Project2_MedicalSupportSystem
             {
                 cnn.Close();
             }
-
-
         }
 
         private void loginName_LB_Click(object sender, EventArgs e)

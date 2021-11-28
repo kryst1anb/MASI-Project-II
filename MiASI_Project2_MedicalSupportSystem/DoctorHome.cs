@@ -38,5 +38,13 @@ namespace MiASI_Project2_MedicalSupportSystem
             login.ShowDialog();
             this.Close();
         }
+
+        private void show_PatientsData_BTN_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorShowPatientsList patientsList = new DoctorShowPatientsList();
+            patientsList.ShowDialog();
+            this.Close();
+        }
     }
 }
