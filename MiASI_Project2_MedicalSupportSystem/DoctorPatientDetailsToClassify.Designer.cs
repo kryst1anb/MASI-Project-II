@@ -435,6 +435,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DoctorPatientDetailsToClassify";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PATIENT DETAILS | MEDICAL SUPPORT SYSTEM";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.patientDetails_PNL.ResumeLayout(false);
