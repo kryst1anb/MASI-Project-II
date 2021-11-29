@@ -15,6 +15,12 @@ namespace MiASI_Project2_MedicalSupportSystem
     public partial class DoctorShowPatientsList : Form
     {
         public static string userLogin;
+        public static string clickedUserID;
+        public static string clickedUserLogin;
+        public static string clickedUserName;
+        public static string clickedUserSurname;
+        public static ArrayList usersIDsList = new ArrayList();
+        public static ArrayList usersLoginsList = new ArrayList();
         public static ArrayList usersNamesList = new ArrayList();
         public static ArrayList usersLastNamesList = new ArrayList();
         public static ArrayList usersPeselsList = new ArrayList();
@@ -23,6 +29,8 @@ namespace MiASI_Project2_MedicalSupportSystem
             InitializeComponent();
             loginName_LB.Text = Login.loginDisplay;
             userLogin = Login.loginDisplay;
+            usersIDsList.Clear();
+            usersLoginsList.Clear();
             usersNamesList.Clear();
             usersLastNamesList.Clear();
             usersPeselsList.Clear();
@@ -32,14 +40,16 @@ namespace MiASI_Project2_MedicalSupportSystem
             try
             {
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT UserName, UserLastName, UserPesel FROM Project2.dbo.Users WHERE RoleID LIKE '1'", cnn);
+                SqlCommand cmd = new SqlCommand($"SELECT UserID, UserLogin, UserName, UserLastName, UserPesel FROM Project2.dbo.Users WHERE RoleID LIKE '1'", cnn);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
                 {
-                    usersNamesList.Add(dataReader[0].ToString());
-                    usersLastNamesList.Add(dataReader[1].ToString());
-                    usersPeselsList.Add(dataReader[2].ToString());
+                    usersIDsList.Add(dataReader[0].ToString());
+                    usersLoginsList.Add(dataReader[1].ToString());
+                    usersNamesList.Add(dataReader[2].ToString());
+                    usersLastNamesList.Add(dataReader[3].ToString());
+                    usersPeselsList.Add(dataReader[4].ToString());
                 }
 
                 cmd.Dispose();
@@ -80,7 +90,19 @@ namespace MiASI_Project2_MedicalSupportSystem
 
         void button_click(object sender, EventArgs e)
         {
-            MessageBox.Show("patient clicked");
+            Button btn = sender as Button;
+            string buttonName = btn.Name.ToString();
+            int buttonNumber = int.Parse(buttonName.Substring(0, 1));
+
+            clickedUserID = usersIDsList[buttonNumber].ToString();
+            clickedUserName = usersNamesList[buttonNumber].ToString();
+            clickedUserSurname = usersLastNamesList[buttonNumber].ToString();
+            clickedUserLogin = usersLoginsList[buttonNumber].ToString();
+
+            this.Hide();
+            DoctorShowPatientDetails showClickedPatientDetails = new DoctorShowPatientDetails();
+            showClickedPatientDetails.ShowDialog();
+            this.Close();
         }
 
         private void loginName_LB_MouseEnter(object sender, EventArgs e)
