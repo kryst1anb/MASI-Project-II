@@ -18,6 +18,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         public static string clickedUserLogin;
         public static string clickedUserName;
         public static string clickedUserSurname;
+        public static string clickedUserPesel;
         public static ArrayList usersIDsList = new ArrayList();
         public static ArrayList usersLoginsList = new ArrayList();
         public static ArrayList usersNamesList = new ArrayList();
@@ -104,8 +105,12 @@ namespace MiASI_Project2_MedicalSupportSystem
             clickedUserName = usersNamesList[buttonNumber].ToString();
             clickedUserSurname = usersLastNamesList[buttonNumber].ToString();
             clickedUserLogin = usersLoginsList[buttonNumber].ToString();
+            clickedUserPesel = usersPeselsList[buttonNumber].ToString();
 
-            MessageBox.Show(clickedUserName);
+            this.Hide();
+            DoctorPatientDetailsToClassify patientClassify = new DoctorPatientDetailsToClassify();
+            patientClassify.ShowDialog();
+            this.Close();
         }
 
         private void loginName_LB_MouseEnter(object sender, EventArgs e)

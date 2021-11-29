@@ -11,15 +11,17 @@ using Microsoft.Data.SqlClient;
 
 namespace MiASI_Project2_MedicalSupportSystem
 {
-    public partial class DoctorShowPatientDetails : Form
+    public partial class DoctorPatientDetailsToClassify : Form
     {
-        public static string userLogin;
-        public DoctorShowPatientDetails()
+        public static string clickedUserLogin;
+
+        public DoctorPatientDetailsToClassify()
         {
             InitializeComponent();
             loginName_LB.Text = Login.loginDisplay;
-            userLogin = DoctorShowPatientsList.clickedUserLogin;
-            patientDetailsName_LB.Text = $"{DoctorShowPatientsList.clickedUserName} {DoctorShowPatientsList.clickedUserSurname}";
+            clickedUserLogin = DoctorPatientsListToClassify.clickedUserLogin;
+            patientDetailsName_LB.Text = $"{DoctorPatientsListToClassify.clickedUserName} {DoctorPatientsListToClassify.clickedUserSurname}";
+            pesel_LB.Text = DoctorPatientsListToClassify.clickedUserPesel;
 
             string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=false;";
             SqlConnection cnn = new SqlConnection(connectionString);
@@ -27,13 +29,11 @@ namespace MiASI_Project2_MedicalSupportSystem
             try
             {
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigree,Age,Outcome FROM Project2.dbo.Samples as s INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{userLogin}'", cnn);
+                SqlCommand cmd = new SqlCommand($"SELECT Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigree,Age,Outcome FROM Project2.dbo.Samples as s INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{clickedUserLogin}'", cnn);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.Read())
                 {
-                    noData_LB.Visible = false;
-
                     pregnancies_TB.Text = dataReader[0].ToString();
                     glucose_TB.Text = dataReader[1].ToString();
                     bloodPressure_TB.Text = dataReader[2].ToString();
@@ -42,31 +42,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                     bmi_TB.Text = dataReader[5].ToString();
                     diabetesPedigree_TB.Text = dataReader[6].ToString();
                     age_TB.Text = dataReader[7].ToString();
-
-                    if(string.IsNullOrEmpty(dataReader[8].ToString()))
-                    {
-                        patientOutcome_LB.Text = "NOT DIAGNOSED";
-                        patientOutcome_LB.ForeColor = Color.FromArgb(0, 163, 136);
-                    }
-                    else if (dataReader[8].ToString() == "1")
-                    {
-                        patientOutcome_LB.Text = "DIABETES";
-                        patientOutcome_LB.ForeColor = Color.FromArgb(194, 43, 63);
-                    }
-                    else
-                    {
-                        patientOutcome_LB.Text = "NO DIABETES";
-                        patientOutcome_LB.ForeColor = Color.FromArgb(33, 209, 92);
-                    }
                 }
-                else
-                {
-                    patientOutcome_LB.Text = "NOT DIAGNOSED";
-                    patientOutcome_LB.ForeColor = Color.FromArgb(57, 44, 201);
-                    patientDetails_PNL.Visible = false;
-                    noData_LB.Visible = true;
-                }
-                
 
                 cmd.Dispose();
                 dataReader.Close();
@@ -102,9 +78,14 @@ namespace MiASI_Project2_MedicalSupportSystem
         private void backShowList_BTN_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoctorShowPatientsList patientsList = new DoctorShowPatientsList();
+            DoctorPatientsListToClassify patientsList = new DoctorPatientsListToClassify();
             patientsList.ShowDialog();
             this.Close();
+        }
+
+        private void classify_BTN_Click(object sender, EventArgs e)
+        {
+            classification_BTNs.Visible = true;
         }
     }
 }
