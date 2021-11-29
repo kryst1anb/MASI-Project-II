@@ -46,5 +46,13 @@ namespace MiASI_Project2_MedicalSupportSystem
             patientsList.ShowDialog();
             this.Close();
         }
+
+        private void goToClassify_BTN_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorPatientsListToClassify patientsListToClassify = new DoctorPatientsListToClassify();
+            patientsListToClassify.ShowDialog();
+            this.Close();
+        }
     }
 }

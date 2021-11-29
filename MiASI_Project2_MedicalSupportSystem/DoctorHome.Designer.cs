@@ -213,6 +213,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.goToClassify_BTN.TabIndex = 14;
             this.goToClassify_BTN.Text = "CLASSIFY";
             this.goToClassify_BTN.UseVisualStyleBackColor = false;
+            this.goToClassify_BTN.Click += new System.EventHandler(this.goToClassify_BTN_Click);
             // 
             // pictureBox2
             // 
