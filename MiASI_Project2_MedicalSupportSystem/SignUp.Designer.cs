@@ -290,9 +290,9 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
             this.label9.Location = new System.Drawing.Point(391, 355);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 17);
+            this.label9.Size = new System.Drawing.Size(41, 17);
             this.label9.TabIndex = 34;
-            this.label9.Text = "Code:";
+            this.label9.Text = "Pesel:";
             // 
             // PinPESELCode_TB
             // 

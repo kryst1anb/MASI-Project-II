@@ -92,6 +92,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                 PinCode_TB.Visible = false;
                 PinPESELCode_TB.Visible = true;
                 IsDoctor_CB.Checked = false;
+                label9.Text = "Pesel:";
             }
             else
             {
@@ -99,6 +100,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                 PinCode_TB.Visible = true;
                 PinPESELCode_TB.Visible = false;
                 IsPatient_CB.Checked = false;
+                label9.Text = "Pin:";
             }
         }
 
