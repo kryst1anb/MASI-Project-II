@@ -14,7 +14,6 @@ namespace MiASI_Project2_MedicalSupportSystem
 {
     public partial class SignUp : Form
     {
-        //Wytłumacze co to jest jak będziemy na DC
         string publicKey = "<RSAKeyValue><Modulus>1BqYDcKctOuTI73qRbUCaxO3tTBXD9Wmm6tYsS7q/ubk7+dlRsx8v8w4vHAskuk0LXSb1y9OhSBONnPT8Hre7GjE8zzSCFwsBuPJTzG21Zeu/R5jPSXWmmZCc0p3S5s8ILaR3qrdDDLpyru1mSGWBL0A22+iGaGIeuIwO/1jFmk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
 
         public SignUp()
@@ -63,6 +62,28 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.Close();
         }
 
+        private bool isValidPesel(string pesel)
+        {
+            int[] weight = new int[] { 1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
+            long sum = 0;
+            string x = pesel.Substring(10,1);
+
+            long controlNumber = long.Parse(x);
+
+            for (int i = 0; i < 10; i++)
+            {
+                sum += (long.Parse(pesel.Substring(i, 1)) * weight[i]);
+            }
+
+
+            sum = sum % 10;
+
+            if ((10 - sum) % 10 == controlNumber)
+                return true;
+            else
+                return false; 
+        }
+
         private void IsType_CB_CheckedChanged(object sender, EventArgs e)
         {
             if (IsPatient_CB.Checked)
@@ -94,6 +115,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             SqlConnection cnn = new SqlConnection(connectionString);
             cnn.Open();
 
+            SqlCommand cmdSelectPESEL = new SqlCommand($"SELECT * FROM Project2.dbo.Users WHERE UserPesel Like '{PinPESELCode_TB.Text}'", cnn);
             SqlCommand cmdSelect = new SqlCommand($"SELECT * FROM Project2.dbo.Users WHERE UserLogin Like '{userLogin}'", cnn);
 
             try
@@ -110,19 +132,47 @@ namespace MiASI_Project2_MedicalSupportSystem
                         }
                         else
                         {
-                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{Encryption(userPassword,publicKey)}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 2, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
+                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{Encryption(userPassword, publicKey)}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 2, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
                         }
                     }
                     else if (IsPatient_CB.Checked == true)
                     {
-                        //Patient
-                        if (string.IsNullOrWhiteSpace(login_signUp_TB.Text) || string.IsNullOrWhiteSpace(password_signUp_TB.Text) || login_signUp_TB.Text.Any(Char.IsWhiteSpace) || password_signUp_TB.Text.Any(Char.IsWhiteSpace))
+                    //Patient
+                        if (isValidPesel(PinPESELCode_TB.Text))
                         {
-                            MessageBox.Show("Invalid input");
+                            try
+                            {
+                                SqlDataReader dataReader1 = cmdSelectPESEL.ExecuteReader();
+                    
+                                if (dataReader1.Read())
+                                {
+                                    MessageBox.Show("This PESEL has already been assigned an account");
+                                }
+                                else
+                                {
+                                    if (string.IsNullOrWhiteSpace(login_signUp_TB.Text) || string.IsNullOrWhiteSpace(password_signUp_TB.Text) || login_signUp_TB.Text.Any(Char.IsWhiteSpace) || password_signUp_TB.Text.Any(Char.IsWhiteSpace))
+                                    {
+                                        MessageBox.Show("Invalid input");
+                                    }
+                                    else
+                                    {
+                                        commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{Encryption(userPassword, publicKey)}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 1, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
+                                    }
+                                }
+                                dataReader1.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                            finally
+                            {
+                                cmdSelectPESEL.Dispose();
+                            }
                         }
                         else
                         {
-                            commandText = $"INSERT INTO Project2.dbo.Passwords (Password) VALUES ('{Encryption(userPassword, publicKey)}'); INSERT INTO Project2.dbo.Users (UserLogin, UserName, UserLastName, UserPesel, RoleID, PasswordID) VALUES ('{userLogin}', '{userName}', '{userSurname}', '{userPesel}', 1, (SELECT TOP 1 PasswordID FROM Project2.dbo.Passwords ORDER BY PasswordID DESC));";
+                            MessageBox.Show("Wrong PESEL!");
                         }
                     }
                     else
@@ -130,6 +180,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                         MessageBox.Show("Wrong pin code!");
                         PinCode_TB.Text = "";
                     }
+                    
 
                     SqlCommand cmd = new SqlCommand(commandText, cnn);
                     cmd.ExecuteNonQuery();
