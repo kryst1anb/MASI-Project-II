@@ -85,14 +85,14 @@ namespace MiASI_Project2_MedicalSupportSystem
 
         public static bool isValidBMI(string timeValue)
         {
-            string pattern = @"^(([0-9]|[1-5][0-9])(,[0-9])*|6[0-7])(,[0-1])*$";
+            string pattern = @"^(([0-9]|[1-5][0-9])(,[0-9])*|6[0-9])(,[0-9])*$";
             Regex timeRegex = new Regex(pattern);
             return timeRegex.IsMatch(timeValue);
         }
 
         public static bool isValidDiabetesPedigree(string dateValue)
         {
-            string pattern = @"^(([0-2])|([0-2])(,[0-9])*|(([0-1])(,[0-9])[8-9]))*$";
+            string pattern = @"^(([0-2])|(([0-2])(,[0-9]))*|(([0-2])(,[0-9][0-9])))*$";
             Regex dateRegex = new Regex(pattern);
             return dateRegex.IsMatch(dateValue);
         }

@@ -62,7 +62,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.Close();
         }
 
-        private bool isValidPesel(string pesel)
+        public static bool isValidPesel(string pesel)
         {
             int[] weight = new int[] { 1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
             long sum = 0;

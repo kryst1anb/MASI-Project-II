@@ -25,6 +25,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         public DoctorPatientDetailsToClassify()
         {
             InitializeComponent();
+            decisionSaved_LB.Visible = false;
             clickedUserID = DoctorPatientsListToClassify.clickedUserID;
             loginName_LB.Text = Login.loginDisplay;
             clickedUserLogin = DoctorPatientsListToClassify.clickedUserLogin;
@@ -198,6 +199,8 @@ namespace MiASI_Project2_MedicalSupportSystem
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples SET Outcome = 0 WHERE UserID Like '{clickedUserID}'", cnn);
                 cmd.ExecuteNonQuery();
+                decisionSaved_LB.Visible = true;
+                classification_BTNs.Visible = false;
             }
             catch (Exception ex)
             {
@@ -218,6 +221,9 @@ namespace MiASI_Project2_MedicalSupportSystem
                 cnn.Open();
                 SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples SET Outcome = 1 WHERE UserID Like '{clickedUserID}'", cnn);
                 cmd.ExecuteNonQuery();
+                decisionSaved_LB.Visible = true;
+                classification_BTNs.Visible = false;
+
             }
             catch (Exception ex)
             {

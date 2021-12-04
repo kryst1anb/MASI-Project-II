@@ -54,13 +54,13 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.label5 = new System.Windows.Forms.Label();
             this.backShowList_BTN = new System.Windows.Forms.Button();
             this.outcome_LB = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.classify_BTN = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.diabetes_BTN = new System.Windows.Forms.Button();
             this.nodiabetes_BTN = new System.Windows.Forms.Button();
             this.pesel_LB = new System.Windows.Forms.Label();
             this.classification_BTNs = new System.Windows.Forms.Panel();
+            this.decisionSaved_LB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.patientDetails_PNL.SuspendLayout();
             this.classification_BTNs.SuspendLayout();
@@ -321,25 +321,14 @@ namespace MiASI_Project2_MedicalSupportSystem
             // 
             // outcome_LB
             // 
-            this.outcome_LB.AutoSize = true;
             this.outcome_LB.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.outcome_LB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
-            this.outcome_LB.Location = new System.Drawing.Point(279, 290);
+            this.outcome_LB.Location = new System.Drawing.Point(124, 290);
             this.outcome_LB.Name = "outcome_LB";
-            this.outcome_LB.Size = new System.Drawing.Size(161, 25);
+            this.outcome_LB.Size = new System.Drawing.Size(377, 25);
             this.outcome_LB.TabIndex = 72;
             this.outcome_LB.Text = "NOT DIAGNOSED";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.ForeColor = System.Drawing.SystemColors.Control;
-            this.label13.Location = new System.Drawing.Point(195, 290);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 25);
-            this.label13.TabIndex = 71;
-            this.label13.Text = "Outcome:";
+            this.outcome_LB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // classify_BTN
             // 
@@ -411,9 +400,21 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.classification_BTNs.Controls.Add(this.diabetes_BTN);
             this.classification_BTNs.Location = new System.Drawing.Point(175, 360);
             this.classification_BTNs.Name = "classification_BTNs";
-            this.classification_BTNs.Size = new System.Drawing.Size(281, 112);
+            this.classification_BTNs.Size = new System.Drawing.Size(281, 105);
             this.classification_BTNs.TabIndex = 77;
             this.classification_BTNs.Visible = false;
+            // 
+            // decisionSaved_LB
+            // 
+            this.decisionSaved_LB.AutoSize = true;
+            this.decisionSaved_LB.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.decisionSaved_LB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(136)))));
+            this.decisionSaved_LB.Location = new System.Drawing.Point(248, 327);
+            this.decisionSaved_LB.Name = "decisionSaved_LB";
+            this.decisionSaved_LB.Size = new System.Drawing.Size(124, 20);
+            this.decisionSaved_LB.TabIndex = 78;
+            this.decisionSaved_LB.Text = "DECISION SAVED";
+            this.decisionSaved_LB.Visible = false;
             // 
             // DoctorPatientDetailsToClassify
             // 
@@ -421,10 +422,10 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.decisionSaved_LB);
             this.Controls.Add(this.classification_BTNs);
             this.Controls.Add(this.classify_BTN);
             this.Controls.Add(this.outcome_LB);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.backShowList_BTN);
             this.Controls.Add(this.patientDetails_PNL);
             this.Controls.Add(this.pesel_LB);
@@ -476,12 +477,12 @@ namespace MiASI_Project2_MedicalSupportSystem
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button backShowList_BTN;
         private System.Windows.Forms.Label outcome_LB;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button classify_BTN;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button diabetes_BTN;
         private System.Windows.Forms.Button nodiabetes_BTN;
         private System.Windows.Forms.Label pesel_LB;
         private System.Windows.Forms.Panel classification_BTNs;
+        private System.Windows.Forms.Label decisionSaved_LB;
     }
 }
