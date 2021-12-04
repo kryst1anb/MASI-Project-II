@@ -91,10 +91,20 @@ namespace MiASI_Project2_MedicalSupportSystem
 
         private void classify_BTN_Click(object sender, EventArgs e)
         {
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=false;";
+            SqlConnection cnn = new SqlConnection(connectionString);
             classification_BTNs.Visible = true;
 
             #region Vairables
-            file = File.ReadAllLines("diabetes.csv").Skip(1);
+            try
+            {
+                file = File.ReadAllLines("diabetes.csv").Skip(1);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             healthy0 = 0;
             sick1 = 0;
             k = 0;
@@ -122,13 +132,42 @@ namespace MiASI_Project2_MedicalSupportSystem
             #region ShowResults
             if (healthy0 > sick1)
             {
-                //MessageBox.Show("Patient does not have diabietes");
-                outcome_LB.Text = "Patient does not have diabietes";
+
+                try
+                {
+                    cnn.Open();
+                    SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples as s SET s.Outcome = 0 INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{clickedUserLogin}'", cnn);
+                    cmd.ExecuteNonQuery();
+                    outcome_LB.Text = "Patient does not have diabietes";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                
             }
             else
             {
-                //MessageBox.Show("Patient have diabietes");
-                outcome_LB.Text = "Patient have diabietes";
+                try
+                {
+                    cnn.Open();
+                    SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples as s SET s.Outcome = 1 INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{clickedUserLogin}'", cnn);
+                    cmd.ExecuteNonQuery();
+                    outcome_LB.Text = "Patient have diabietes";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                
             }
             #endregion
         }
