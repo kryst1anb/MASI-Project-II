@@ -62,7 +62,7 @@ namespace MiASI_Project2_MedicalSupportSystem
                 else
                 {
                     patientOutcome_LB.Text = "NOT DIAGNOSED";
-                    patientOutcome_LB.ForeColor = Color.FromArgb(57, 44, 201);
+                    patientOutcome_LB.ForeColor = Color.FromArgb(0, 163, 136);
                     patientDetails_PNL.Visible = false;
                     noData_LB.Visible = true;
                 }
