@@ -378,6 +378,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.diabetes_BTN.TabIndex = 75;
             this.diabetes_BTN.Text = "DIABETES";
             this.diabetes_BTN.UseVisualStyleBackColor = false;
+            this.diabetes_BTN.Click += new System.EventHandler(this.diabetes_BTN_Click);
             // 
             // nodiabetes_BTN
             // 
@@ -391,6 +392,7 @@ namespace MiASI_Project2_MedicalSupportSystem
             this.nodiabetes_BTN.TabIndex = 76;
             this.nodiabetes_BTN.Text = "NO DIABETES";
             this.nodiabetes_BTN.UseVisualStyleBackColor = false;
+            this.nodiabetes_BTN.Click += new System.EventHandler(this.nodiabetes_BTN_Click);
             // 
             // pesel_LB
             // 

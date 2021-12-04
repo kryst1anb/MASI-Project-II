@@ -15,6 +15,7 @@ namespace MiASI_Project2_MedicalSupportSystem
     public partial class DoctorPatientDetailsToClassify : Form
     {
         public static string clickedUserLogin;
+        public static string clickedUserID;
         public static IEnumerable<string> file;
         private static List<Points> points;
         public static int healthy0 = 0, sick1 = 0, k = 0;
@@ -24,6 +25,7 @@ namespace MiASI_Project2_MedicalSupportSystem
         public DoctorPatientDetailsToClassify()
         {
             InitializeComponent();
+            clickedUserID = DoctorPatientsListToClassify.clickedUserID;
             loginName_LB.Text = Login.loginDisplay;
             clickedUserLogin = DoctorPatientsListToClassify.clickedUserLogin;
             patientDetailsName_LB.Text = $"{DoctorPatientsListToClassify.clickedUserName} {DoctorPatientsListToClassify.clickedUserSurname}";
@@ -132,42 +134,11 @@ namespace MiASI_Project2_MedicalSupportSystem
             #region ShowResults
             if (healthy0 > sick1)
             {
-
-                try
-                {
-                    cnn.Open();
-                    SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples as s SET s.Outcome = 0 INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{clickedUserLogin}'", cnn);
-                    cmd.ExecuteNonQuery();
-                    outcome_LB.Text = "Patient does not have diabietes";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    cnn.Close();
-                }
-                
+                outcome_LB.Text = "Patient does not have diabietes";
             }
             else
             {
-                try
-                {
-                    cnn.Open();
-                    SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples as s SET s.Outcome = 1 INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{clickedUserLogin}'", cnn);
-                    cmd.ExecuteNonQuery();
-                    outcome_LB.Text = "Patient have diabietes";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    cnn.Close();
-                }
-                
+                outcome_LB.Text = "Patient have diabietes";
             }
             #endregion
         }
@@ -215,6 +186,46 @@ namespace MiASI_Project2_MedicalSupportSystem
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+            }
+        }
+
+        private void nodiabetes_BTN_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=false;";
+            SqlConnection cnn = new SqlConnection(connectionString);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples SET Outcome = 0 WHERE UserID Like '{clickedUserID}'", cnn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
+
+        private void diabetes_BTN_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=false;";
+            SqlConnection cnn = new SqlConnection(connectionString);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand($"UPDATE Project2.dbo.Samples SET Outcome = 1 WHERE UserID Like '{clickedUserID}'", cnn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
             }
         }
 

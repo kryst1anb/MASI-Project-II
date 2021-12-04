@@ -48,12 +48,12 @@ namespace MiASI_Project2_MedicalSupportSystem
                         patientOutcome_LB.Text = "NOT DIAGNOSED";
                         patientOutcome_LB.ForeColor = Color.FromArgb(0, 163, 136);
                     }
-                    else if (dataReader[8].ToString() == "1")
+                    else if (dataReader[8].ToString() == "True")
                     {
                         patientOutcome_LB.Text = "DIABETES";
                         patientOutcome_LB.ForeColor = Color.FromArgb(194, 43, 63);
                     }
-                    else
+                    else if (dataReader[8].ToString() == "False")
                     {
                         patientOutcome_LB.Text = "NO DIABETES";
                         patientOutcome_LB.ForeColor = Color.FromArgb(33, 209, 92);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace MiASI_Project2_MedicalSupportSystem
 {
@@ -16,6 +17,53 @@ namespace MiASI_Project2_MedicalSupportSystem
         {
             InitializeComponent();
             loginName_LB.Text = Login.loginDisplay;
+
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=false;";
+            SqlConnection cnn = new SqlConnection(connectionString);
+
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand($"SELECT Outcome FROM Project2.dbo.Samples as s INNER JOIN Project2.dbo.Users as u ON s.UserID = u.UserID where u.UserLogin Like '{loginName_LB.Text}'", cnn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    if (string.IsNullOrEmpty(dataReader[0].ToString()))
+                    {
+                        outcomePatientResult_LB.Text = "NOT DIAGNOSED";
+                        outcomePatientResult_LB.ForeColor = Color.FromArgb(0, 163, 136);
+                    }
+                    else if (dataReader[0].ToString() == "True")
+                    {
+                        outcomePatientResult_LB.Text = "DIABETES";
+                        outcomePatientResult_LB.ForeColor = Color.FromArgb(194, 43, 63);
+                    }
+                    else if (dataReader[0].ToString() == "False")
+                    {
+                        outcomePatientResult_LB.Text = "NO DIABETES";
+                        outcomePatientResult_LB.ForeColor = Color.FromArgb(33, 209, 92);
+                    }
+                }
+                else
+                {
+                    outcomePatientResult_LB.Text = "NOT DIAGNOSED";
+                    outcomePatientResult_LB.ForeColor = Color.FromArgb(0, 163, 136);
+                }
+
+
+                cmd.Dispose();
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+
         }
 
         private void loginName_LB_MouseEnter(object sender, EventArgs e)
